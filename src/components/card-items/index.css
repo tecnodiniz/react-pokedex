@@ -1,0 +1,7 @@
+.card-items{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.card-items strong{
+    color: #979797;
+}

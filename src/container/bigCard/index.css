@@ -1,0 +1,77 @@
+.bigCard_content{
+    height: 100vh;
+    background-color: #5cc8f2;
+    padding-top: 5rem;
+    width: 100%;
+}
+.bigCard_content_header_list > ol{
+    display: inline-flex;
+}
+.bigCard_content_header{
+    padding: 1rem 2rem;
+}
+.bigCard_content_header_top{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    
+}
+.bigCard_content_header_top h1 {
+    padding: 0;
+    margin: 0;
+    color: #fff;
+}
+.bigCard_content_header_top p {
+   
+    color: #fff;
+    font-weight: 900;
+}
+.bigCard_content_image{
+    text-align: center;
+    background-image: url('../../assets/img/Pokeball.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.bigCard_content_image > img {
+    position: relative;
+    top: 25px;
+
+}
+.bigCard_content_info{
+    min-height: 60vh;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 2rem 2rem 0 0;
+    
+}
+.bigCard_info {
+    padding: 3rem 2rem;
+}
+.bigCard_info_nav ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+.tab-link.active{
+    border-bottom: solid blue;
+    display: block;
+}
+
+@media screen and (min-width: 576px){
+
+}
+@media screen and (min-width: 768px){
+    .bigCard_content{
+        width: 768px;
+        margin: 0 auto;
+        padding-top: 0;
+    }
+    .bigCard_content_header{
+        padding: 0rem 2rem;
+    }
+}
+
+@media screen and (min-width: 992px){
+
+}

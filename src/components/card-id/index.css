@@ -1,0 +1,8 @@
+.card-id{
+    width: 100%;
+    text-align: -webkit-right;
+    padding: 0.5rem;
+    padding-bottom: 0;
+    color: rgb(0 0 0 / 11%);
+    font-weight: 900;
+}

@@ -1,0 +1,14 @@
+.card-name {
+    width: 100%;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #FFF;
+    margin-left: 1rem;
+    
+}
+.card-name p {
+    text-align: left;
+}
+.card-name p::first-letter{
+    text-transform: uppercase;
+}

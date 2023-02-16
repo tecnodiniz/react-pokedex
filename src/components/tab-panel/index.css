@@ -1,0 +1,13 @@
+.tab-content{
+    display: none;
+    overflow-y: auto;
+    height: 280px;
+}
+.tab-content > p {
+    text-align: justify;
+    letter-spacing: 1px;
+    margin-bottom: 3rem;
+}
+.tab-content.active{
+    display: block;
+}

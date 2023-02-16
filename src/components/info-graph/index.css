@@ -1,0 +1,16 @@
+.info-graph{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+.info-graph.box{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    
+    
+}
+.info-graph small{
+    color: #979797;
+    font-size: 1rem;
+}

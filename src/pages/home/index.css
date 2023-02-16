@@ -1,0 +1,107 @@
+.nav{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0!important;
+    transition: padding 0.3s ease-out;
+    z-index: 1;
+}
+.nav-items{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: #8C072B;
+    padding-bottom: 1rem;
+}
+.nav-items > .nav-brand{
+    margin-bottom: 5px;
+    width: 100%;
+}
+.nav-input > input{
+    padding: 0.4rem;
+}
+.content{
+   
+    padding: 10rem 1rem;
+    min-height: 100vh;
+    background-color: #fff;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.content-list{
+    display: grid;
+    grid-template-columns: 1fr;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 1rem;
+    background-color: #fca224;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+.btn-more{
+    border: none;
+    padding: 1rem;
+    border-radius: 2rem;
+    width: 100%;
+    color: white;
+    font-weight: 900;
+    font-size: 1.25rem;
+    background-color: #F2B807;
+    /* transition: transform 0.5s ease-in-out; */ 
+}
+.second-container-header{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+.second-container-header button{
+
+    background-color: transparent;
+    border: none;
+    padding: 1rem;
+    color: #fff;
+    font-size: 1.7rem;
+}
+
+/* .btn-more:hover{
+    background-color: rgb(232 203 0);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgb(0 0 0 / 35%);
+} */
+
+
+@media screen and (min-width: 576px){
+    .content-list {
+    grid-template-columns: 1fr 1fr!important;
+    }
+    .btn-more{
+        width: 200px;
+    }
+}
+@media screen and (min-width: 768px){
+    .content-list {
+        grid-template-columns: 1fr 1fr 1fr!important;
+    }
+}
+
+@media screen and (min-width: 992px){
+    .content-list {
+        grid-template-columns: 1fr 1fr 1fr 1fr!important;
+    }
+    .nav-items{
+        width: 980px;
+        margin: 0 auto;
+    }
+}
+
+
+

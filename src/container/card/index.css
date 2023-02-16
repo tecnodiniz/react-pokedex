@@ -1,0 +1,54 @@
+:root{
+    --water:#5CC8F2;
+    --grass:#49d0b0;
+    --fire:#D94A4A;
+    --electric:#F2CD5C;
+    --ground:#BF9663;
+    --psychic:#D9628D;
+    --normal:#e9dea9;
+    --bug:#34EB6E;
+    --poison:#D4ADD9;
+    --fairy:#F299B9;
+    --fighting:#D15D61;
+    --rock:#534E2C;
+    --ghost:#573858;
+    --ice:#05DBF2;
+    --dragon:#05AFF2;
+}
+.card{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    background-color: #C1D98F;
+    border-radius: 16px;
+    margin: 0.2rem;
+    cursor: pointer;
+}
+
+.card-body {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.card-body > ol {
+    padding: 1rem;
+
+}
+
+.poke-image{
+    background-image: url('../../assets//img/Pokeball.png');
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position: top;
+
+}
+.card__shadow {
+    -webkit-box-shadow: 0px 0px 8px 0px rgb(0 0 0 / 75%);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 8px 0px rgb(0 0 0 / 75%);
+}
+.card__effect {
+    transition: transform 0.3s ease-in-out;
+}

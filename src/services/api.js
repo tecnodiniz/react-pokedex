@@ -1,5 +1,5 @@
 
-export const get = (offset = 0, limit = 4) => {
+export const get = (offset = 0, limit = 12) => {
     return fetch( `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}` )
     .then((response) => response.json())
     .then((data) => data.results)

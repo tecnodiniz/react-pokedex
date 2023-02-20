@@ -3,6 +3,7 @@ import Card from '../../container/card';
 import BigCard from '../../container/bigCard';
 import { PokeContext } from '../../context/pokeContext';
 import { get, getDetails } from '../../services/api';
+import { Link } from 'react-router-dom';
 
 import './index.css';
 import FontAwesomeIcon from '../../components/fontawesome';
@@ -16,6 +17,7 @@ function Home() {
     const [isSelect, setSelect] = useState(false);
     const [cardId, setCardId] = useState(1);
     const [details, setDetails] = useState({});
+    const [pokeSearch, setPokeSearch] = useState('');
     
   
 
@@ -65,6 +67,7 @@ function Home() {
 
     return ( 
         <>
+        
             { !isSelect ?
                <div className='container'>
    
@@ -75,7 +78,11 @@ function Home() {
                                 <img width={200} src={require('../../assets/img/pokemon-png-logo.webp')} alt="Pokédex with PokeAPI" />
                             </div>
                             <div className='nav-input'>
-                                <input type='text'name='poke-search' placeholder='Pokemon or Type' />
+                                <input type='text'name='poke-search'
+                                onChange={event => setPokeSearch(event.target.value)}
+                                placeholder='Pokemon or Type' />
+                                <Link to={`/teste/${pokeSearch}`}><button>Pesquisar</button></Link>
+                                
                             </div>
                          
                         </div>
@@ -99,6 +106,7 @@ function Home() {
             
             :
             <div className='second-container'>
+                
                 <BigCard 
                 pokemon={pokemon} 
                 details={details}
@@ -113,7 +121,7 @@ function Home() {
                             <FontAwesomeIcon icon="fa-regular fa-heart" />
                         </button>
                      </div>
-                        </BigCard>
+                </BigCard>
                 
             </div>}
         

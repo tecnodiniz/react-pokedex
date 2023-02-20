@@ -1,65 +1,62 @@
 import React, { useEffect, useState } from 'react';
-import { getDetails } from '../../services/api';
+import { get, getDetails } from '../../services/api';
 import CardImage from '../../components/card-image';
+import { useParams, useNavigate } from 'react-router-dom';
+import BigCard from '../../container/bigCard';
+import FontAwesomeIcon from '../../components/fontawesome';
 
 
-function Teste() {
-    console.clear()
-    const url = "https://pokeapi.co/api/v2/evolution-chain/1";
 
-    const [pokemons, setPokemons] = useState([{name:''}])
-    const [finish, setFinish] = useState(false)
-    const [poke, setPoke] = useState([
-        {name:'',sprites:{
-            other: {
-                'official-artwork':{
-                    front_default:''}
-                }
-        }}
-    ]);
 
+function Teste(props) {
+    const { name } = useParams();
+    const redirect = useNavigate()
+    const [details, setDetails] = useState({});
+    const [pokemon, setPokemon] = useState([]);
+    const [isOn, setIsOn] = useState(false);
+    
     useEffect(()=>{
-
-        getDetails(url).then(response =>{
-            const { chain } = response;
-            if(chain.evolves_to.length){
-                if(chain.evolves_to[0].evolves_to.length){
-                    setPokemons([
-                        {name:chain.species.name },
-                        {name:chain.evolves_to[0].species.name},
-                        {name:chain.evolves_to[0].evolves_to[0].species.name}
-            ]);
-        }else setPokemons([{name:chain.species.name },
-                        {name:chain.evolves_to[0].species.name}]);
-            }
-            else setPokemons([{name:chain.species.name}])
-            setFinish(true)
-        });
-    },[])
-
-useEffect(()=>{
-    if(finish){
+        getDetails('https://pokeapi.co/api/v2/pokedex/1').then(response => setDetails(response))
+        // getDetails(`https://pokeapi.co/api/v2/pokemon/${name}`).then(response => setPokemon(response))
         get().then(response => {
-            setPoke(response)
+            setPokemon(response)
+            setIsOn(true);
+        });
+        
+    },[])
+    const get = () =>{
+        return fetch(`https://pokeapi.co/api/v2/pokemon/${name}`).then((response) =>{
+            if(response.status !== 404)
+                return response.json()
+            else
+            return redirect("/");
         })
     }
-},[finish]) 
-
-const get = () => {
-   return Promise.all(pokemons.map(item => getDetails(`https://pokeapi.co/api/v2/pokemon/${item.name}`)))
-}
-
+    const backToHome = () =>{
+        redirect("/");
+    }
     return ( 
-        <div style={{backgroundColor:'white',height:'100vh', padding:'1rem'}}>
-            {poke.map((item)=> <CardImage 
-            path={item.sprites.other['official-artwork'].front_default}
-            alt={item.name}
-            width={"100px"}
-            
-            />)}
-            
+        <>
+        {isOn &&
+            <BigCard 
+                pokemon={pokemon} 
+                details={details}
+                        
+            >
+            <div className='second-container-header'>
+                <button onClick={backToHome}>
+                    <FontAwesomeIcon icon="fa-regular fa-arrow-left" />
+                </button>
 
-        </div>
+                <button>
+                    <FontAwesomeIcon icon="fa-regular fa-heart" />
+                </button>
+            </div>
+            </BigCard>
+        }
+
+        
+        </>
      );
 }
 
